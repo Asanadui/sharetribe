@@ -37,6 +37,11 @@
           %div
             = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
 
+      - if quantity > 1
+        %li
+          %div
+            = t("transactions.quantity", quantity: quantity)
+
       %li
         - if delivery_method == :shipping
           .initiate-transaction-totals
@@ -81,6 +86,9 @@
 
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
+
+      - if quantity
+        = form.hidden_field :quantity, value: quantity
 
       - if delivery_method
         = form.hidden_field :delivery_method, value: delivery_method

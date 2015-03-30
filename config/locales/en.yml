@@ -1905,6 +1905,7 @@ en:
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
       total: "Total:"
+    quantity: "Quantity: %{quantity}"
   unit:
     day: day
     days: days
